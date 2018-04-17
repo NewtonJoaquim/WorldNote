@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="login_hint">Login</string>
+    <string name="password_hint">Senha</string>
+    <string name="login_button">Entrar</string>
+    <string name="save_credentials">Salvar credenciais?</string>
+    <string name="register_button">Cadastrar-se</string>
+    <string name="name_hint">Nome</string>
+    <string name="password_confirm_hint">Repita a senha</string>
+</resources>
