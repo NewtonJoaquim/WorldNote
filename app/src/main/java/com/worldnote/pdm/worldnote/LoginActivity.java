@@ -37,6 +37,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         if (view == btnLogin) {
             Log.d("flux", "doing login");
+            Intent i = new Intent(this, CreateNote.class);
+            startActivity(i);
         } else if (view == btnRegister){
             Intent i = new Intent(this, RegisterActivity.class);
             startActivity(i);

@@ -7,4 +7,6 @@
     <string name="register_button">Cadastrar-se</string>
     <string name="name_hint">Nome</string>
     <string name="password_confirm_hint">Repita a senha</string>
+    <string name="register_note_title">Insira o título</string>
+    <string name="register_note">Criar nova nota</string>
 </resources>
