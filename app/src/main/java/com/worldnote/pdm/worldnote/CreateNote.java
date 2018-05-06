@@ -16,17 +16,24 @@ import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
 
 public class CreateNote extends AppCompatActivity {
-    TextView getText;
-    Button b;
+    TextView placeText;
+    TextView tittle;
+    TextView note;
+    Button pickaplace;
+    Button confirm;
     int PLACE_PICKER_REQUEST=1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_createnote);
 
-        getText = findViewById(R.id.getplace);
-        b = findViewById(R.id.button);
-        b.setOnClickListener(new View.OnClickListener() {
+        placeText = findViewById(R.id.getplace);
+        tittle = findViewById(R.id.tittle);
+        note = findViewById(R.id.note);
+        confirm = findViewById(R.id.create);
+        pickaplace = findViewById(R.id.pickaplace);
+
+        pickaplace.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 PlacePicker.IntentBuilder builder= new PlacePicker.IntentBuilder();
@@ -46,6 +53,13 @@ public class CreateNote extends AppCompatActivity {
             }
         });
 
+        confirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
+
     }
     @Override
     protected void onActivityResult(int requestCode,int resultcode, Intent data){
@@ -53,7 +67,7 @@ public class CreateNote extends AppCompatActivity {
             if(resultcode == RESULT_OK){
                 Place place = PlacePicker.getPlace(data,this);
                 String adress = String.format("Place %s",place.getAddress());
-                getText.setText(adress);
+                placeText.setText(adress);
             }
         }
     }
