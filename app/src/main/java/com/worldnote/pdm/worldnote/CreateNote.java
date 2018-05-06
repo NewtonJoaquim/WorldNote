@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
@@ -17,8 +18,9 @@ import com.google.android.gms.location.places.ui.PlacePicker;
 
 public class CreateNote extends AppCompatActivity {
     TextView placeText;
-    TextView tittle;
-    TextView note;
+    EditText tittle;
+    EditText note;
+    EditText date;
     Button pickaplace;
     Button confirm;
     int PLACE_PICKER_REQUEST=1;
@@ -56,7 +58,9 @@ public class CreateNote extends AppCompatActivity {
         confirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                
+                String n_tittle = tittle.getText().toString();
+                String n_note = note.getText().toString();
+                String n_date = note.getText().toString();
             }
         });
 

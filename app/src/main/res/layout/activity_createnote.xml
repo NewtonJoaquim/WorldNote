@@ -31,12 +31,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/register_note_title"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
-        <TextView
+        <EditText
             android:id="@+id/tittle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
             android:text="@string/note_tittle" />
 
         <TextView
@@ -44,7 +48,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/register_note_note"
-            android:textAlignment="center" />
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <EditText
             android:id="@+id/note"
@@ -54,6 +60,23 @@
             android:inputType="textPersonName"
             android:text="@string/note_note"
             android:textAlignment="viewStart" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/register_note_date"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="date"
+            android:text="@string/note_date" />
 
         <LinearLayout
             android:layout_width="match_parent"
