@@ -1,35 +1,43 @@
 {
   "project_info": {
-    "project_number": "379173038108",
-    "firebase_url": "https://worldnote-ede52.firebaseio.com",
-    "project_id": "worldnote-ede52",
-    "storage_bucket": "worldnote-ede52.appspot.com"
+    "project_number": "1076460643971",
+    "firebase_url": "https://worldnote-86f77.firebaseio.com",
+    "project_id": "worldnote-86f77",
+    "storage_bucket": "worldnote-86f77.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:379173038108:android:172c7edb6ac3f46e",
+        "mobilesdk_app_id": "1:1076460643971:android:172c7edb6ac3f46e",
         "android_client_info": {
           "package_name": "com.worldnote.pdm.worldnote"
         }
       },
       "oauth_client": [
         {
-          "client_id": "379173038108-sqr3mbpshijiemiid7jmu8s6j5tvev5g.apps.googleusercontent.com",
+          "client_id": "1076460643971-o2n0vu42sojfns2a0q1mpie8bu7rchk3.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.worldnote.pdm.worldnote",
-            "certificate_hash": "54a854de5b5543ace265b151f54eb98f3acd7afd"
+            "certificate_hash": "9d098b92979d855abce5570f8155ea7f7b228a94"
           }
         },
         {
-          "client_id": "379173038108-7o43k8ohp0fpi0londjftfmnlj0q1a62.apps.googleusercontent.com",
+          "client_id": "1076460643971-51pp7a91989dl6gp8rc4u5av7u5onck8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.worldnote.pdm.worldnote",
+            "certificate_hash": "4e9b86cff2b9129c5dac11a385b1fbec440c5d11"
+          }
+        },
+        {
+          "client_id": "1076460643971-r9ea23mbqup015g7erm451rsc6j5ljv7.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyDneCpQsALywXVGynkfk-khX5cDYAi-qKY"
+          "current_key": "AIzaSyDBqtgRoMesGun_b2YA7fw85VlZOQmWLXA"
         }
       ],
       "services": {
@@ -40,7 +48,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "379173038108-7o43k8ohp0fpi0londjftfmnlj0q1a62.apps.googleusercontent.com",
+              "client_id": "1076460643971-r9ea23mbqup015g7erm451rsc6j5ljv7.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

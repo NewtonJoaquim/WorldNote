@@ -2,6 +2,10 @@ package com.worldnote.pdm.worldnote.model;
 
 import android.location.Location;
 
+import com.google.android.gms.location.places.Place;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.util.Date;
 
 /**
@@ -12,16 +16,22 @@ public class Note {
 
     private String title;
     private String content;
-    private Location location;
-    private Date date;
-    private User author;
+    private Place location;
+    private String date;
+    private FirebaseUser author;
 
     public Note() {}
 
-    public Note(String title, String content, Location location, Date date, User author) {
+    public Note(String title, String content, Place location, String date, FirebaseUser author) {
         this.title = title;
         this.content = content;
         this.location = location;
+        this.date = date;
+        this.author = author;
+    }
+    public Note(String title, String content, String date, FirebaseUser author){
+        this.title = title;
+        this.content = content;
         this.date = date;
         this.author = author;
     }
@@ -42,27 +52,27 @@ public class Note {
         this.content = content;
     }
 
-    public Location getLocation() {
+    public Place getLocation() {
         return location;
     }
 
-    public void setLocation(Location location) {
+    public void setLocation(Place location) {
         this.location = location;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public User getAuthor() {
+    public FirebaseUser getAuthor() {
         return author;
     }
 
-    public void setAuthor(User author) {
+    public void setAuthor(FirebaseUser author) {
         this.author = author;
     }
 }
