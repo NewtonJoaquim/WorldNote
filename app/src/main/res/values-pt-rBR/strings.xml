@@ -1,10 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="login_hint">Login</string>
+    <string name="login_hint">E-mail</string>
     <string name="password_hint">Senha</string>
     <string name="login_button">Entrar</string>
     <string name="save_credentials">Salvar credenciais?</string>
     <string name="register_button">Cadastrar-se</string>
     <string name="name_hint">Nome</string>
     <string name="password_confirm_hint">Repita a senha</string>
+    <string name="register_note_title">Insira o título</string>
+    <string name="register_note_note">Insira a nota</string>
+    <string name="register_note">Criar nova nota</string>
+    <string name="register_note_place">Escolha um lugar</string>
+    <string name="register_note_pick_place">Escolher</string>
+    <string name="note_note">Nota</string>
+    <string name="note_tittle">Título</string>
+    <string name="register_note_create">Criar</string>
+    <string name="register_note_date">Insira a data</string>
+    <string name="note_date">Data</string>
 </resources>
