@@ -41,6 +41,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         btnLogin.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
+
+        FirebaseUser user = mAuth.getCurrentUser();
+        updateUI(user);
+    }
+
+    private void updateUI(FirebaseUser user) {
+        if (user != null) {
+            startActivity(new Intent(LoginActivity.this, NoteListActivity.class));
+        }
     }
 
     @Override
@@ -59,9 +68,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d("tag", "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
-                                //updateUI(user);
-                                Intent i = new Intent(LoginActivity.this, CreateNote.class);
-                                startActivity(i);
+                                updateUI(user);
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w("tag", "signInWithEmail:failure", task.getException());
@@ -69,8 +76,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                         Toast.LENGTH_SHORT).show();
                                 //updateUI(null);
                             }
-
-                            // ...
                         }
                     });
         } else if (view == btnRegister){

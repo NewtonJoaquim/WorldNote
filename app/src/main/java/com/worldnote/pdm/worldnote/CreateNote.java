@@ -3,6 +3,7 @@ package com.worldnote.pdm.worldnote;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,12 +17,13 @@ import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.worldnote.pdm.worldnote.model.Note;
-import com.worldnote.pdm.worldnote.model.User;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -96,7 +98,16 @@ public class CreateNote extends AppCompatActivity {
         Log.v("teste","1");
         Note n = new Note(n_tittle,n_note,n_date,us);
         Log.v("teste","2");
-        mDatabase.child(id).setValue(n);
+        mDatabase.child(id).setValue(n).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+                if (task.isSuccessful()) {
+
+                } else {
+                    task.getException();
+                }
+            }
+        });
         Log.v("teste","3");
         Toast.makeText(CreateNote.this,"Note added",Toast.LENGTH_SHORT).show();
     }

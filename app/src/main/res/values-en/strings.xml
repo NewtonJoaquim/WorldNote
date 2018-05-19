@@ -17,4 +17,6 @@
     <string name="register_note_create">Create</string>
     <string name="register_note_date">Insert a date</string>
     <string name="note_date">Date</string>
+    <string name="title_note_list">Notes</string>
+    <string name="title_note_detail">Note</string>
 </resources>

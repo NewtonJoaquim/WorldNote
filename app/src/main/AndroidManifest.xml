@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.worldnote.pdm.worldnote">
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,9 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data android:name="com.google.android.geo.API_KEY"
-            android:value="">
-        </meta-data>
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="" />
+
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -20,12 +23,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".RegisterActivity" />
+        <activity android:name=".CreateNote" />
         <activity
-            android:name=".RegisterActivity">
-        </activity>
+            android:name=".NoteListActivity"
+            android:label="@string/title_note_list"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CreateNote">
+            android:name=".NoteDetailActivity"
+            android:label="@string/title_note_detail"
+            android:parentActivityName=".NoteListActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.worldnote.pdm.worldnote.NoteListActivity" />
         </activity>
+
+        <service
+            android:name=".NoteService"
+            android:enabled="true"
+            android:exported="true"></service>
     </application>
 
 </manifest>
