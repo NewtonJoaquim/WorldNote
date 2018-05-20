@@ -11,16 +11,11 @@
     android:paddingRight="40dp"
     tools:context="com.worldnote.pdm.worldnote.RegisterActivity">
 
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="200dp"
-        android:layout_height="76dp"
-        app:srcCompat="@drawable/img_102074" />
 
     <EditText
         android:id="@+id/edtName"
         android:layout_width="match_parent"
-        android:layout_height="46dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@color/darkGray"
         android:ems="10"
@@ -31,40 +26,40 @@
     <EditText
         android:id="@+id/edtEmail"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@color/darkGray"
         android:ems="10"
         android:hint="@string/login_hint"
         android:inputType="textPersonName"
-        android:padding="10dp" />
+        android:padding="10dp"/>
 
     <EditText
         android:id="@+id/edtPassword"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@color/darkGray"
         android:ems="10"
         android:hint="@string/password_hint"
         android:inputType="textPassword|numberPassword"
-        android:padding="10dp" />
+        android:padding="10dp"/>
 
     <EditText
         android:id="@+id/edtPassword2"
         android:layout_width="match_parent"
-        android:layout_height="53dp"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:background="@color/darkGray"
         android:ems="10"
         android:hint="@string/password_confirm_hint"
         android:inputType="textPassword|numberPassword"
-        android:padding="10dp" />
+        android:padding="10dp"/>
 
     <Button
         android:id="@+id/button"
         android:layout_width="match_parent"
-        android:layout_height="81dp"
+        android:layout_height="60dp"
         android:layout_marginTop="30dp"
         android:text="@string/login_button" />
 

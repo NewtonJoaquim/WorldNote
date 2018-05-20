@@ -24,7 +24,7 @@
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Title"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="30sp" />
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/textView3"
@@ -32,13 +32,13 @@
             android:layout_height="wrap_content"
             android:text="@string/register_note_title"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/tittle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="@string/note_tittle" />
@@ -49,13 +49,13 @@
             android:layout_height="wrap_content"
             android:text="@string/register_note_note"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/note"
             android:layout_width="match_parent"
-            android:layout_height="64dp"
+            android:layout_height="40dp"
             android:ems="10"
             android:inputType="textPersonName"
             android:hint="@string/note_note"
@@ -67,15 +67,16 @@
             android:layout_height="wrap_content"
             android:text="@string/register_note_date"
             android:textAlignment="center"
-            android:textSize="18sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <EditText
             android:id="@+id/date"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:ems="10"
             android:inputType="date"
+            android:height="15sp"
             android:hint="@string/note_date" />
 
         <LinearLayout
@@ -115,5 +116,3 @@
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
-
-
