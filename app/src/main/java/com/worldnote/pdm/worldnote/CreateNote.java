@@ -21,7 +21,6 @@ import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.worldnote.pdm.worldnote.model.Note;
-import com.worldnote.pdm.worldnote.model.User;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -73,6 +72,8 @@ public class CreateNote extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addNote();
+                Intent i = new Intent(CreateNote.this, ListNotes.class);
+                startActivity(i);
             }
         });
 
@@ -82,7 +83,7 @@ public class CreateNote extends AppCompatActivity {
         if(requestCode == PLACE_PICKER_REQUEST){
             if(resultcode == RESULT_OK){
                  p = PlacePicker.getPlace(data,this);
-                String adress = String.format("Place %s",p.getAddress());
+                String adress = String.format("Place %s",p.getName());
                 placeText.setText(adress);
             }
         }
@@ -93,8 +94,9 @@ public class CreateNote extends AppCompatActivity {
         String n_note = note.getText().toString();
         FirebaseUser us = mAuth.getCurrentUser();
         String n_date = date.getText().toString();
+        String n_location = placeText.getText().toString();
         Log.v("teste","1");
-        Note n = new Note(n_tittle,n_note,n_date,us);
+        Note n = new Note(n_tittle,n_note,n_location,n_date,us.getEmail());
         Log.v("teste","2");
         mDatabase.child(id).setValue(n);
         Log.v("teste","3");

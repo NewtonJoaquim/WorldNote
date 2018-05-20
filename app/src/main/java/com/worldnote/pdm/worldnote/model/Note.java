@@ -16,20 +16,20 @@ public class Note {
 
     private String title;
     private String content;
-    private Place location;
+    private String location;
     private String date;
-    private FirebaseUser author;
+    private String author;
 
     public Note() {}
 
-    public Note(String title, String content, Place location, String date, FirebaseUser author) {
+    public Note(String title, String content, String location, String date, String author) {
         this.title = title;
         this.content = content;
         this.location = location;
         this.date = date;
         this.author = author;
     }
-    public Note(String title, String content, String date, FirebaseUser author){
+    public Note(String title, String content, String date, String author){
         this.title = title;
         this.content = content;
         this.date = date;
@@ -52,11 +52,11 @@ public class Note {
         this.content = content;
     }
 
-    public Place getLocation() {
+    public String getLocation() {
         return location;
     }
 
-    public void setLocation(Place location) {
+    public void setLocation(String location) {
         this.location = location;
     }
 
@@ -68,11 +68,11 @@ public class Note {
         this.date = date;
     }
 
-    public FirebaseUser getAuthor() {
+    public String getAuthor() {
         return author;
     }
 
-    public void setAuthor(FirebaseUser author) {
+    public void setAuthor(String author) {
         this.author = author;
     }
 }

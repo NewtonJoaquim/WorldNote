@@ -60,7 +60,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                                 Log.d("tag", "signInWithEmail:success");
                                 FirebaseUser user = mAuth.getCurrentUser();
                                 //updateUI(user);
-                                Intent i = new Intent(LoginActivity.this, CreateNote.class);
+                                Intent i = new Intent(LoginActivity.this, ListNotes.class);
                                 startActivity(i);
                             } else {
                                 // If sign in fails, display a message to the user.
