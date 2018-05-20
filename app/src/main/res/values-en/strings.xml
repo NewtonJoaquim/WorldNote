@@ -19,4 +19,7 @@
     <string name="note_date">Date</string>
     <string name="add_note">Add Note</string>
     <string name="logout">Logout</string>
+    <string name="edit_note">Edit Nota</string>
+    <string name="edit">Edit</string>
+    <string name="delete">Delete</string>
 </resources>

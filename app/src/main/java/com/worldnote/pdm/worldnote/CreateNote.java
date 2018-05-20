@@ -96,7 +96,7 @@ public class CreateNote extends AppCompatActivity {
         String n_date = date.getText().toString();
         String n_location = placeText.getText().toString();
         Log.v("teste","1");
-        Note n = new Note(n_tittle,n_note,n_location,n_date,us.getEmail());
+        Note n = new Note(id,n_tittle,n_note,n_location,n_date,us.getEmail());
         Log.v("teste","2");
         mDatabase.child(id).setValue(n);
         Log.v("teste","3");
