@@ -50,8 +50,8 @@ public class ListNotes extends AppCompatActivity {
         mDatabase = FirebaseDatabase.getInstance().getReference("notes");
 
         final FirebaseUser user = mAuth.getCurrentUser();
-
-        welcome.setText("Welcome  "+user.getEmail());
+        String wel = getString(R.string.welcome);
+        welcome.setText(wel+user.getEmail());
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -99,72 +99,17 @@ public class ListNotes extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
                 Note note = notes.get(i);
                 Log.v("teste","4");
-                showUpdateDeleteDialog(note.getNoteId());
+                Intent intent = new Intent(ListNotes.this,EditNote.class);
+                intent.putExtra("id",note.getNoteId());
+                intent.putExtra("titulo",note.getTitle());
+                intent.putExtra("nota",note.getContent());
+                intent.putExtra("data",note.getDate());
+                intent.putExtra("local",note.getLocation());
+                intent.putExtra("email",user.getEmail());
+                //showUpdateDeleteDialog(note.getNoteId());
                 Log.v("teste","5");
+                startActivity(intent);
                 return true;
-            }
-        });
-    }
-    private boolean updateNote(final String id, final String title, final String note, final String date){
-       final DatabaseReference dR = FirebaseDatabase.getInstance().getReference("notes");
-        dR.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Map<String,Object> postValues = new HashMap<String, Object>();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    postValues.put(snapshot.getKey(),snapshot.getValue());
-                }
-                postValues.put("title",title);
-                postValues.put("component",note);
-                postValues.put("date",date);
-                Toast.makeText(getApplicationContext(), "Note Updated", Toast.LENGTH_LONG).show();
-                dR.child("notes").child(id).updateChildren(postValues);
-
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-       //Note nNova = new Note(title,note,date);
-       //dR.setValue(nNova);
-        return true;
-    }
-    private void showUpdateDeleteDialog(final String noteid){
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
-        LayoutInflater inflater = getLayoutInflater();
-        Log.v("teste","6");
-        final View dialogView = inflater.inflate(R.layout.update_dialog,null);
-        dialogBuilder.setView(dialogView);
-        Log.v("teste","7");
-        final EditText title = dialogView.findViewById(R.id.title);
-        final EditText note = dialogView.findViewById(R.id.note);
-        final EditText date = dialogView.findViewById(R.id.date);
-        final Button editar = dialogView.findViewById(R.id.edit);
-        final Button deletar = dialogView.findViewById(R.id.delete);
-
-        final AlertDialog b = dialogBuilder.create();
-        Log.v("teste","8");
-        b.show();
-        Log.v("teste","9");
-        editar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String titulo = title.getText().toString();
-                String nota = note.getText().toString();
-                String data = date.getText().toString();
-
-                if(!TextUtils.isEmpty(titulo)){
-                    updateNote(noteid,titulo,nota,data);
-                    b.dismiss();
-                }
-            }
-        });
-        deletar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
             }
         });
     }

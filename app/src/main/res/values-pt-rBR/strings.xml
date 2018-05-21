@@ -22,4 +22,5 @@
     <string name="edit_note">Editar Nota</string>
     <string name="edit">Editar</string>
     <string name="delete">Deletar</string>
+    <string name="welcome">Bem Vindo !</string>
 </resources>
