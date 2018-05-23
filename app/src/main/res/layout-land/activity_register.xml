@@ -42,8 +42,8 @@
         android:background="@color/darkGray"
         android:ems="10"
         android:hint="@string/password_hint"
-        android:inputType="textPassword|numberPassword"
-        android:padding="10dp"/>
+        android:inputType="textPassword"
+        android:padding="10dp" />
 
     <EditText
         android:id="@+id/edtPassword2"
@@ -53,8 +53,8 @@
         android:background="@color/darkGray"
         android:ems="10"
         android:hint="@string/password_confirm_hint"
-        android:inputType="textPassword|numberPassword"
-        android:padding="10dp"/>
+        android:inputType="textPassword"
+        android:padding="10dp" />
 
     <Button
         android:id="@+id/button"

@@ -51,7 +51,7 @@ public class ListNotes extends AppCompatActivity {
 
         final FirebaseUser user = mAuth.getCurrentUser();
         String wel = getString(R.string.welcome);
-        welcome.setText(wel+user.getEmail());
+        welcome.setText(wel + " " + user.getDisplayName());
 
         mDatabase.addValueEventListener(new ValueEventListener() {
             @Override
@@ -88,9 +88,9 @@ public class ListNotes extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mAuth.signOut();
-                Intent myIntent = new Intent(ListNotes.this, LoginActivity.class);
-                //myIntent.putExtra("key", value); //Optional parameters
-                startActivity(myIntent);
+                Intent i = new Intent(ListNotes.this, LoginActivity.class);
+                startActivity(i);
+                finish();
             }
         });
 
@@ -113,4 +113,5 @@ public class ListNotes extends AppCompatActivity {
             }
         });
     }
+
 }

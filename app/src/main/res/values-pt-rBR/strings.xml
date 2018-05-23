@@ -22,5 +22,10 @@
     <string name="edit_note">Editar Nota</string>
     <string name="edit">Editar</string>
     <string name="delete">Deletar</string>
-    <string name="welcome">Bem Vindo !</string>
+    <string name="welcome">Bem Vindo!</string>
+    <string name="delete_content_description">Botão de deletar nota</string>
+    <string name="note_place">Local</string>
+    <string name="delete_text">Deseja apagar esta nota?</string>
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancelar</string>
 </resources>

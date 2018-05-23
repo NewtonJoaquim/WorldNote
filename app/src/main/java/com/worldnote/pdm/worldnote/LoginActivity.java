@@ -10,7 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,11 +19,13 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
+    public static int REGISTER_USER = 0;
+    public static int USER_CREATED = 1;
+
     EditText edtLogin;
     EditText edtPassword;
     Button btnLogin;
     TextView btnRegister;
-    ToggleButton tgSaveCred;
     private FirebaseAuth mAuth;
 
     @Override
@@ -36,11 +37,23 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         edtPassword = findViewById(R.id.edtPassword);
         btnLogin = findViewById(R.id.btnLogin);
         btnRegister = findViewById(R.id.btnRegister);
-        tgSaveCred = findViewById(R.id.tgSaveCred);
         mAuth = FirebaseAuth.getInstance();
 
         btnLogin.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
+
+        updateUI(mAuth.getCurrentUser());
+    }
+
+    private void updateUI(FirebaseUser user) {
+        if (user != null) {
+            Log.d("login", "starting ListNotes");
+            Intent i = new Intent(LoginActivity.this, ListNotes.class);
+            startActivity(i);
+            finish();
+        } else {
+            Log.d("login", "user is null");
+        }
     }
 
     @Override
@@ -58,24 +71,28 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI with the signed-in user's information
                                 Log.d("tag", "signInWithEmail:success");
-                                FirebaseUser user = mAuth.getCurrentUser();
-                                //updateUI(user);
-                                Intent i = new Intent(LoginActivity.this, ListNotes.class);
-                                startActivity(i);
+                                updateUI(mAuth.getCurrentUser());
                             } else {
                                 // If sign in fails, display a message to the user.
                                 Log.w("tag", "signInWithEmail:failure", task.getException());
                                 Toast.makeText(LoginActivity.this, "Authentication failed.",
                                         Toast.LENGTH_SHORT).show();
-                                //updateUI(null);
                             }
-
-                            // ...
                         }
                     });
         } else if (view == btnRegister){
             Intent i = new Intent(this, RegisterActivity.class);
-            startActivity(i);
+            startActivityForResult(i, LoginActivity.REGISTER_USER);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        Log.d("login", "onActivityResult");
+        Log.d("login", "resultCode: " + resultCode);
+        Log.d("login", "requestCode: " + requestCode);
+        if (resultCode == USER_CREATED) {
+            updateUI(mAuth.getCurrentUser());
         }
     }
 }
