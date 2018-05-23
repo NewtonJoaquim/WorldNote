@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,13 +12,14 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.worldnote.pdm.worldnote.model.Note;
 
 import java.util.List;
 
-public class NotesList extends ArrayAdapter<Note>{
+public class NotesList extends ArrayAdapter<Note> {
     private Activity context;
     List<Note> notes;
     ImageButton btnDelete;
@@ -36,6 +38,7 @@ public class NotesList extends ArrayAdapter<Note>{
         TextView textViewNote = listViewItem.findViewById(R.id.note);
         TextView date = listViewItem.findViewById(R.id.date);
         TextView place = listViewItem.findViewById(R.id.place);
+        btnDelete = listViewItem.findViewById(R.id.btnDelete);
 
         final Note note = notes.get(position);
         title.setText(note.getTitle());
@@ -43,7 +46,27 @@ public class NotesList extends ArrayAdapter<Note>{
         date.setText(note.getDate());
         place.setText(note.getLocation());
 
-        btnDelete = listViewItem.findViewById(R.id.btnDelete);
+
+        View.OnClickListener listener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(context, EditNote.class);
+                intent.putExtra("id",note.getNoteId());
+                intent.putExtra("titulo",note.getTitle());
+                intent.putExtra("nota",note.getContent());
+                intent.putExtra("data",note.getDate());
+                intent.putExtra("local",note.getLocation());
+                intent.putExtra("email", FirebaseAuth.getInstance().getCurrentUser().getEmail());
+                Log.v("teste","5");
+                context.startActivity(intent);
+            }
+        };
+
+        title.setOnClickListener(listener);
+        textViewNote.setOnClickListener(listener);
+        date.setOnClickListener(listener);
+        place.setOnClickListener(listener);
+
         btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
